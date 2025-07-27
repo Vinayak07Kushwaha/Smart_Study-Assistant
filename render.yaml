@@ -21,6 +21,9 @@ services:
         value: "1024"
       - key: TEMPERATURE
         value: "0.7"
+      - key: MONGO_URI
+         sync: false  # Or use 'value' if you want to hardcode a test DB URI (not recommended)
+
 
   # Frontend "Static" Site treated as web with static env
   - type: web
