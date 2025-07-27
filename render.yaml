@@ -28,6 +28,7 @@ services:
   - type: web
     name: smart-study-frontend
     env: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/build
     startCommand: echo "Static site"
@@ -41,6 +42,7 @@ services:
   - type: web
     name: smart-study-ai
     env: python
+    plan: free
     buildCommand: cd ai-backend && pip install -r requirements.txt
     startCommand: cd ai-backend && python main.py
     envVars:
