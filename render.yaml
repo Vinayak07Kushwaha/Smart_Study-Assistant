@@ -11,7 +11,6 @@ services:
         value: production
       - key: PORT
         value: 10000
-      # Add your environment variables here
       - key: GROQ_API_KEY
         sync: false  # This will be set manually in Render dashboard
       - key: LLM_PROVIDER
@@ -23,11 +22,10 @@ services:
       - key: TEMPERATURE
         value: "0.7"
 
-  # Frontend Static Site
-  - type: web
-    name: smart-study-frontend
+staticSites:
+  - name: smart-study-frontend
     buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/build
+    staticPublishPath: frontend/build
     envVars:
       - key: REACT_APP_API_URL
-        value: https://smart-study-backend.onrender.com  # Update this with your backend URL
+        value: https://smart-study-backend.onrender.com
