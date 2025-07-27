@@ -24,7 +24,7 @@ services:
       - key: TEMPERATURE
         value: "0.7"
 
-  # 2. React Frontend
+  # 2. React Frontend (Static site)
   - type: web
     name: smart-study-frontend
     env: static
@@ -38,7 +38,7 @@ services:
       - key: REACT_APP_AI_BACKEND_URL
         value: https://smart-study-ai.onrender.com
 
-  # 3. Python AI Backend (LLM-powered features)
+  # 3. Python AI Backend
   - type: web
     name: smart-study-ai
     env: python
@@ -46,5 +46,7 @@ services:
     buildCommand: cd ai-backend && pip install -r requirements.txt
     startCommand: cd ai-backend && python main.py
     envVars:
+      - key: PORT
+        value: 5000
       - key: PYTHON_ENV
         value: production
